@@ -1,21 +1,33 @@
-import { StatusBar } from 'expo-status-bar';
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import {SafeAreaView, StyleSheet, View} from 'react-native';
+import {Collapsible} from "./src/Collapsible";
+import {Item} from "./src/Item";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.tsx to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+    return (
+        <SafeAreaView style={styles.safe}>
+            <View style={styles.container}>
+                <Collapsible>
+                    <Item height={200} />
+                </Collapsible>
+                <Collapsible>
+                    <Item height={20} />
+                </Collapsible>
+                <Collapsible>
+                    <Item height={45} />
+                </Collapsible>
+            </View>
+        </SafeAreaView>
+    )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+    safe: {
+        flex: 1,
+    },
+    container: {
+        flex: 1,
+        padding: 16,
+        backgroundColor: '#F2F2F2'
+    }
+})
